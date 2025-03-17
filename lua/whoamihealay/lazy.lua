@@ -28,8 +28,15 @@ require("lazy").setup({
     	'nvim-telescope/telescope.nvim',
       	dependencies = { 'nvim-lua/plenary.nvim' }
     	},
-	{ "rose-pine/neovim", name = "rose-pine" },
-	{'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"} 
+	{'folke/tokyonight.nvim' },
+	{'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"},
+	{'tpope/vim-fugitive'},
+	{'neovim/nvim-lspconfig'},
+	{'williamboman/mason.nvim'},
+	{'williamboman/mason-lspconfig.nvim'},
+	{'hrsh7th/cmp-nvim-lsp'},
+	{'hrsh7th/nvim-cmp'},
+	{'L3MON4D3/LuaSnip'}
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

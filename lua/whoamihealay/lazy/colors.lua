@@ -18,7 +18,7 @@ return {
 		opts = {},
 		config = function()
 			ColorMyPencils()
-		end
+		end,
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -69,23 +69,21 @@ return {
 					floats = "dark", -- style for floating windows
 				},
 			})
-		end
+		end,
 	},
 
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
 		config = function()
-			require('rose-pine').setup({
+			require("rose-pine").setup({
 				disable_background = true,
 				styles = {
 					italic = false,
 				},
 			})
 
-            ColorMyPencils();
-        end
-    },
-
-
+			ColorMyPencils()
+		end,
+	},
 }

@@ -19,8 +19,10 @@ return {
 			require("conform").setup({
 				formatters_by_ft = {},
 			})
+
 			local cmp = require("cmp")
 			local cmp_lsp = require("cmp_nvim_lsp")
+
 			local capabilities = vim.tbl_deep_extend(
 				"force",
 				{},
@@ -30,14 +32,16 @@ return {
 
 			require("fidget").setup({})
 			require("mason").setup()
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
 					"vtsls",
 					"tailwindcss",
 				},
+
 				handlers = {
-					function(server_name) -- default handler (optional)
+					function(server_name)
 						require("lspconfig")[server_name].setup({
 							capabilities = capabilities,
 						})
@@ -55,10 +59,12 @@ return {
 								},
 							},
 						})
+
 						vim.g.zig_fmt_parse_errors = 0
 						vim.g.zig_fmt_autosave = 0
 					end,
-					["lua_ls"] = function()
+
+					lua_ls = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.lua_ls.setup({
 							capabilities = capabilities,
@@ -66,8 +72,6 @@ return {
 								Lua = {
 									format = {
 										enable = true,
-										-- Put format options here
-										-- NOTE: the value should be STRING!!
 										defaultConfig = {
 											indent_style = "space",
 											indent_size = "2",
@@ -77,7 +81,8 @@ return {
 							},
 						})
 					end,
-					["tailwindcss"] = function()
+
+					tailwindcss = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.tailwindcss.setup({
 							capabilities = capabilities,
@@ -98,18 +103,25 @@ return {
 				},
 			})
 
-			local cmp_select = { behavior = cmp.SelectBehavior.Select }
+			local function has_words_before()
+				local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+				if col == 0 then
+					return false
+				end
+				local text = vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1] or ""
+				return text:sub(col, col):match("%s") == nil
+			end
 
 			cmp.setup({
 				snippet = {
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
-				mapping = cmp.mapping.preset.insert({
+
+				mapping = {
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							-- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
 							cmp.select_next_item()
 						elseif vim.snippet.active({ direction = 1 }) then
 							vim.schedule(function()
@@ -121,6 +133,7 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
+
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
@@ -132,18 +145,18 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-				}),
+				},
+
 				sources = cmp.config.sources({
 					{ name = "copilot", group_index = 2 },
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "luasnip" },
 				}, {
 					{ name = "buffer" },
 				}),
 			})
 
 			vim.diagnostic.config({
-				-- update_in_insert = true,
 				float = {
 					focusable = false,
 					style = "minimal",
@@ -155,6 +168,7 @@ return {
 			})
 		end,
 	},
+
 	{
 		"mason-org/mason.nvim",
 		opts = {

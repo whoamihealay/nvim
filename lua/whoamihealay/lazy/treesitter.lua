@@ -15,6 +15,15 @@ return {
 					"jsdoc",
 					"bash",
 					"go",
+                    "html",
+                    "css",
+                    "json",
+                    "yaml",
+                    "markdown",
+                    "markdown_inline",
+                    "python",
+                    "elixir",
+                    "dockerfile"
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)

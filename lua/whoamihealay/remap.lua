@@ -1,20 +1,27 @@
 vim.g.mapleader = " "
 vim.keymap.maplocalleader = "\\"
 
+-- Open file explorer
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Move selected line / block of text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Keep cursor in place when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
+-- Keep cursor centered when scrolling
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- Keep search results centered
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
 vim.keymap.set("n", "=ap", "ma=ap'a")
+-- Replace word under cursor throughout the file
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
--- greatest remap ever
+-- Paste over currently selected text without yanking it
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland

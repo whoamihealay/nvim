@@ -3,6 +3,7 @@ vim.keymap.maplocalleader = "\\"
 
 -- Open file explorer
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<Tab>", "<C-w>w" )
 
 -- Move selected line / block of text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -24,16 +25,22 @@ vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 -- Paste over currently selected text without yanking it
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- next greatest remap ever : asbjornHaland
+-- Yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+-- Yank whole line to system clipboard
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- Delete to void register
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
+-- Disable ex mode
 vim.keymap.set("n", "Q", "<nop>")
 
+-- Quickfix and location list navigation with centering
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- Location list navigation with centering
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- Substitute word under cursor throughout the file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

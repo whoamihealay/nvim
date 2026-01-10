@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.keymap.maplocalleader = "\\"
 
 -- Open file explorer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>fd", vim.cmd.Ex, { desc = "File explorer" })
 vim.keymap.set("n", "<Tab>", "<C-w>w" )
 
 -- Move selected line / block of text in visual mode
@@ -19,7 +19,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "=ap", "ma=ap'a")
--- Replace word under cursor throughout the file
+-- LSP restart
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
 -- Paste over currently selected text without yanking it

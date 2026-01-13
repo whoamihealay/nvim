@@ -23,8 +23,8 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>f", function()
+		vim.keymap.set("n", "<leader>fm", function()
 			require("conform").format({ bufnr = 0 })
-		end)
+		end, { desc = "File format"})
 	end,
 }

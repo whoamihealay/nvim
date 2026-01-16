@@ -3,7 +3,7 @@ vim.keymap.maplocalleader = "\\"
 
 -- Open file explorer
 vim.keymap.set("n", "<leader>fd", vim.cmd.Ex, { desc = "File explorer" })
-vim.keymap.set("n", "<Tab>", "<C-w>w" )
+vim.keymap.set("n", "<Tab>", "<C-w>w")
 
 -- Move selected line / block of text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

@@ -35,9 +35,9 @@ return {
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls",
-					"vtsls",
+          "lua_ls",
 					"tailwindcss",
+					"vtsls",
 				},
 
 				handlers = {
@@ -94,9 +94,6 @@ return {
 								"javascriptreact",
 								"typescript",
 								"typescriptreact",
-								"vue",
-								"svelte",
-								"heex",
 							},
 						})
 					end,
@@ -148,7 +145,6 @@ return {
 				},
 
 				sources = cmp.config.sources({
-					{ name = "copilot", group_index = 2 },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 				}, {
@@ -167,7 +163,7 @@ return {
 				},
 			})
 		end,
-	},
+ 	},
 
 	{
 		"mason-org/mason.nvim",

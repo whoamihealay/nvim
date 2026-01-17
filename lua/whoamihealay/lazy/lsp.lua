@@ -142,6 +142,7 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 				},
 
 				sources = cmp.config.sources({

@@ -23,14 +23,17 @@ return {
 			lazygit = { enabled = true },
 			-- notifier = { enabled = true },
 			-- notify = { enabled = true },
-			picker = { enabled = true },
+			picker = { enabled = true, sources = {files = {
+				hidden = true,
+				ignored = true,
+			}} },
 			-- profiler = { enabled = true },
 			-- quickfile = { enabled = true },
 			-- rename = { enabled = true },
 			scope = { enabled = true },
 			-- scroll = { enabled = true },
 			statuscolumn = { enabled = true },
-			-- terminal = { enabled = true },
+			terminal = { enabled = true },
 			-- toggle = { enabled = true },
 			-- util = { enabled = true },
 			-- win = { enabled = true },
@@ -159,6 +162,14 @@ return {
 					Snacks.picker.git_log_file()
 				end,
 				desc = "Git Log File",
+			},
+			-- Misc
+			{
+				"<C-p>",
+				function()
+					Snacks.terminal()
+				end,
+				desc = "Toggle Terminal",
 			},
 		},
 	},

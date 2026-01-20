@@ -18,4 +18,19 @@ return {
 			require("mini.pairs").setup(opts)
 		end,
 	},
+	{
+		"nvim-mini/mini.icons",
+		version = "*",
+		opts = {
+			file = {
+				[".eslintrc.js"] = { glyph = "󰱺", hl = "MiniIconsYellow" },
+				[".node-version"] = { glyph = "", hl = "MiniIconsGreen" },
+				[".prettierrc"] = { glyph = "", hl = "MiniIconsPurple" },
+        ["package.json"] = { glyph = "", hl = "MiniIconsGreen" },
+        ["pnpm-lock.yaml"] = { glyph = "", hl = "MiniIconsBlue" },
+				["eslint.config.js"] = { glyph = "󰱺", hl = "MiniIconsYellow" },
+				["tsconfig.json"] = { glyph = "", hl = "MiniIconsAzure" },
+			},
+		},
+	},
 }

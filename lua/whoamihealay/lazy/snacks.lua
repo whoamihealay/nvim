@@ -23,10 +23,20 @@ return {
 			lazygit = { enabled = true },
 			-- notifier = { enabled = true },
 			-- notify = { enabled = true },
-			picker = { enabled = true, sources = {files = {
-				hidden = false,
-				ignored = false,
-			}} },
+			picker = {
+				enabled = true,
+				sources = {
+					files = {
+						hidden = false,
+						ignored = false,
+					},
+				},
+				previewers = {
+					diff = {
+						style = "syntax",
+					},
+				},
+			},
 			-- profiler = { enabled = true },
 			-- quickfile = { enabled = true },
 			-- rename = { enabled = true },

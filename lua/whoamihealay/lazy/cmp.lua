@@ -25,7 +25,9 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "super-tab" },
+		keymap = {
+			preset = "super-tab",
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -40,6 +42,9 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			per_filetype = {
+				codecompanion = { "codecompanion" },
+			},
 			providers = {
 				lazydev = {
 					name = "LazyDev",

@@ -2,9 +2,29 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	build = ":TSUpdate",
-  opts = {
-    ensure_installed = {
-
-    }
-  }
+	event = { "BufReadPost", "BufNewFile" },
+	cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
+	opts = {
+		indent = { enable = true },
+		highlight = { enable = true },
+		folds = { enable = true },
+		ensure_installed = {
+			"bash",
+			"dockerfile",
+			"hcl",
+			"helm",
+			"html",
+			"javascript",
+			"json5",
+			"lua",
+			"luadoc",
+			"markdown",
+			"tsx",
+			"typescript",
+			"terraform",
+			"vim",
+			"vimdoc",
+			"yaml",
+		},
+	},
 }

@@ -15,6 +15,10 @@ return {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				elixir = { "mix" },
+				hcl = { "packer_fmt" },
+				terraform = { "terraform_fmt" },
+				tf = { "terraform_fmt" },
+				["terraform-vars"] = { "terraform_fmt" },
 			},
 			formatters = {
 				["clang-format"] = {
@@ -25,6 +29,6 @@ return {
 
 		vim.keymap.set("n", "<leader>fm", function()
 			require("conform").format({ bufnr = 0 })
-		end, { desc = "File format"})
+		end, { desc = "File format" })
 	end,
 }

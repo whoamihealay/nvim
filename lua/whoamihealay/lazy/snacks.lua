@@ -24,8 +24,8 @@ return {
 			-- notifier = { enabled = true },
 			-- notify = { enabled = true },
 			picker = { enabled = true, sources = {files = {
-				hidden = true,
-				ignored = true,
+				hidden = false,
+				ignored = false,
 			}} },
 			-- profiler = { enabled = true },
 			-- quickfile = { enabled = true },

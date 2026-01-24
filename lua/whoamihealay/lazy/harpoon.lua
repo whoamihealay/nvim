@@ -7,32 +7,22 @@ return {
 
 		harpoon:setup()
 
-		vim.keymap.set("n", "<leader>a", function()
-			harpoon:list():prepend()
-		end, { desc = "harpoon - prepend" })
-		vim.keymap.set("n", "<leaderader>A", function()
+		vim.keymap.set("n", "<leader>ha", function()
 			harpoon:list():add()
-		end, { desc = "harpoon - add" })
-		vim.keymap.set("n", "<C-e>", function()
+		end, { desc = "harpoon add file" })
+
+		vim.keymap.set("n", "<leader>hp", function()
+			harpoon:list():prepend()
+		end, { desc = "harpoon prepend file" })
+
+		vim.keymap.set("n", "<leader>hm", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
-		end, { desc = "harpoon - menu" })
-		vim.keymap.set("n", "<M-1>", function()
-			harpoon:list():select(1)
-		end, { desc = "harpoon - select 1" })
-		vim.keymap.set("n", "<M-2>", function()
-			harpoon:list():select(2)
-		end, { desc = "harpoon - select 2" })
-		vim.keymap.set("n", "<M-3>", function()
-			harpoon:list():select(3)
-		end, { desc = "harpoon - select 3" })
-		vim.keymap.set("n", "<M-4>", function()
-			harpoon:list():select(4)
-		end, { desc = "harpoon - select 4" })
-		vim.keymap.set("n", "<M-n>", function()
-			harpoon:list():next()
-		end, { desc = "harpoon - next" })
-		vim.keymap.set("n", "<M-p>", function()
-			harpoon:list():prev()
-		end, { desc = "harpoon - prev" })
+		end, { desc = "harpoon quick menu" })
+
+		for i = 1, 9 do
+			vim.keymap.set("n", "<leader>" .. i, function()
+				harpoon:list():select(i)
+			end, { desc = "harpoon to file " .. i })
+		end
 	end,
 }

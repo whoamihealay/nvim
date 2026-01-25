@@ -53,13 +53,6 @@ return {
 		keys = {
 			-- Top Pickers & Explorer
 			{
-				"<leader>,",
-				function()
-					Snacks.picker.buffers()
-				end,
-				desc = "Buffers",
-			},
-			{
 				"<leader>/",
 				function()
 					Snacks.picker.grep()

@@ -173,6 +173,14 @@ return {
 				end,
 				desc = "Git Log File",
 			},
+			-- buffers
+			{
+				"<leader>u",
+				function()
+					Snacks.picker.undo()
+				end,
+				desc = "Undo History",
+			},
 			-- Misc
 			{
 				"<C-p>",

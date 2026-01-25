@@ -7,9 +7,11 @@ return {
 		spec = {
 			{
 				mode = { "n", "x" },
+				{ "<leader>b", group = "buffer" },
 				{ "<leader>f", group = "file/find" },
 				{ "<leader>g", group = "git" },
 				{ "<leader>h", group = "harpoon" },
+				{ "<leader>q", group = "quit/session" },
 				{ "<leader>x", group = "diagnostics" },
 			},
 		},

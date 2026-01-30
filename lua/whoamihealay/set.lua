@@ -2,7 +2,6 @@ local opt = vim.opt
 
 opt.autowrite = true
 opt.backup = false
-opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 opt.colorcolumn = "80"
 opt.expandtab = true
 opt.fillchars = {
@@ -17,10 +16,8 @@ opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"
 opt.hlsearch = false
 opt.incsearch = true
 opt.isfname:append("@-@")
-
 opt.nu = true
 opt.relativenumber = true
-
 opt.scrolloff = 8
 opt.signcolumn = "yes"
 opt.smartindent = true

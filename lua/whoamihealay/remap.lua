@@ -52,3 +52,6 @@ vim.keymap.set(
 )
 -- Delete word under cursor
 vim.keymap.set("i", "<C-bs>", "<C-w>", { desc = "Delete word before cursor" })
+
+-- Escape terminal
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")

@@ -1,31 +1,36 @@
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"
+local opt = vim.opt
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+opt.autowrite = true
+opt.backup = false
+opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
+opt.colorcolumn = "80"
+opt.expandtab = true
+opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
+opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"
+opt.hlsearch = false
+opt.incsearch = true
+opt.isfname:append("@-@")
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+opt.nu = true
+opt.relativenumber = true
 
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
-
-vim.opt.colorcolumn = "80"
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.smartindent = true
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.swapfile = false
+opt.tabstop = 2
+opt.termguicolors = true
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
+opt.updatetime = 50
+opt.virtualedit = "block"
+opt.wrap = false

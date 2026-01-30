@@ -96,18 +96,18 @@ return {
 				end
 			end
 
-			-- inlay hints
-			if opts.inlay_hints.enabled then
-				Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
-					if
-						vim.api.nvim_buf_is_valid(buffer)
-						and vim.bo[buffer].buftype == ""
-						and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
-					then
-						vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
-					end
-				end)
-			end
+			-- -- inlay hints
+			-- if opts.inlay_hints.enabled then
+			-- 	Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
+			-- 		if
+			-- 			vim.api.nvim_buf_is_valid(buffer)
+			-- 			and vim.bo[buffer].buftype == ""
+			-- 			and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
+			-- 		then
+			-- 			vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
+			-- 		end
+			-- 	end)
+			-- end
 
 			-- code lens
 			if opts.codelens.enabled and vim.lsp.codelens then
@@ -175,7 +175,7 @@ return {
 			end
 
 			local install = vim.tbl_filter(configure, vim.tbl_keys(opts.servers))
-			function getOpts(name)
+			local function getOpts(name)
 				local plugin = require("lazy.core.config").spec.plugins[name]
 				if not plugin then
 					return {}

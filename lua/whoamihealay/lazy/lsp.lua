@@ -30,8 +30,7 @@ return {
 					},
 				},
 				inlay_hints = {
-					enabled = true,
-					exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
+					enabled = false,
 				},
 				codelens = {
 					enabled = false,
@@ -94,6 +93,19 @@ return {
 						server_opts.keys
 					)
 				end
+			end
+
+			-- -- inlay hints
+			if opts.inlay_hints.enabled then
+				Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
+					if
+						vim.api.nvim_buf_is_valid(buffer)
+						and vim.bo[buffer].buftype == ""
+						and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
+					then
+						vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
+					end
+				end)
 			end
 
 			-- code lens

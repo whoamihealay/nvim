@@ -44,6 +44,10 @@ return {
 				},
 				servers = {
 					["*"] = {
+						root_dir = function(fanme)
+							local util = require("lspconfig.util")
+							return util.root_pattern(".git")(fname) or util.path.dirname(fname)
+						end,
 						capabilities = {
 							workspace = {
 								fileOperations = {
@@ -78,7 +82,45 @@ return {
                 desc = "Prev Reference", enabled = function() return Snacks.words.is_enabled() end },
             },
 					},
+					["azure_pipelines_ls"] = {
+						settings = {
+							yaml = {
+								schemas = {
+									["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = "/azure-pipelines*.y*l",
+								},
+							},
+						},
+					},
+					yamlls = {
+						capabilities = {
+							textDocument = {
+								foldingRange = {
+									dynamicRegistration = false,
+									lineFoldingOnly = true,
+								},
+							},
+						},
+						settings = {
+							redhat = { telemetry = { enabled = false } },
+							yaml = {
+								keyOrdering = false,
+								format = {
+									enable = true,
+								},
+								validate = true,
+								schemaStore = {
+									-- Must disable built-in schemaStore support to use
+									-- schemas from SchemaStore.nvim plugin
+									enable = false,
+									-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+									url = "",
+								},
+								schemas = require("schemastore").yaml.schemas(),
+							},
+						},
+					},
 				},
+				setup = {},
 			}
 		end,
 		config = vim.schedule_wrap(function(_, opts)
@@ -188,5 +230,10 @@ return {
 				automatic_enable = { exclude = mason_exclude },
 			})
 		end),
+	},
+	{
+		"b0o/SchemaStore.nvim",
+		lazy = true,
+		version = false,
 	},
 }

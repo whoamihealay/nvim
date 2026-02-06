@@ -6,8 +6,14 @@ return {
 		opts = {
 			ensure_installed = {
 				"ansible-lint",
+				"delve",
 				"hadolint",
+				"impl",
 				"js-debug-adapter",
+				"goimports",
+				"golangci-lint",
+				"gofumpt",
+				"gomodifytags",
 				"markdownlint-cli2",
 				"markdown-toc",
 				"prettier",

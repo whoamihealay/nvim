@@ -91,6 +91,7 @@ return {
 							},
 						},
 					},
+					marksman = {},
 					yamlls = {
 						capabilities = {
 							textDocument = {

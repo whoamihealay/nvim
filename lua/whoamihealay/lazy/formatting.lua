@@ -72,22 +72,27 @@ return {
 		end,
 	},
 	{
+		"markdown-preview.nvim",
+	},
+	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {
 			code = {
 				sign = false,
 				width = "block",
+				left_pad = 1,
 				right_pad = 1,
 			},
 			heading = {
 				sign = false,
-				icons = {},
+				width = { "full", "full", "block", "block", "block", "block" },
+				min_width = 60,
 			},
 			checkbox = {
 				enabled = false,
 			},
 		},
-		ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
+		ft = { "markdown", "norg", "rmd", "org" },
 		config = function(_, opts)
 			require("render-markdown").setup(opts)
 			Snacks.toggle({

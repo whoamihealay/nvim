@@ -91,6 +91,7 @@ return {
 							},
 						},
 					},
+					copilot = { enabled = false },
 					marksman = {},
 					yamlls = {
 						capabilities = {

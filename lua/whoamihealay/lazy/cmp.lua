@@ -61,14 +61,14 @@ return {
 				},
 				copilot = {
 					module = "blink-cmp-copilot",
-					name = "Copilot",
-					opts = {},
+					name = "copilot",
+					score_offset = 100,
+					async = true,
 				},
 			},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
-	---@param opts blink.cmp.Config | { sources: { compat: string[] } }
 	config = function(_, opts)
 		-- if opts.snippets and opts.snippets.preset == "default" then
 		-- 	opts.snippets.expand = LazyVim.cmp.expand

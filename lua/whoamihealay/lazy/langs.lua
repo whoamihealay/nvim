@@ -12,4 +12,14 @@ return {
 		ft = "python",
 		keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
 	},
+	-- Helm
+	{
+		"qvalentin/helm-ls.nvim",
+		ft = "helm",
+	},
+	-- TailwindCss
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		opts = {},
+	},
 }
